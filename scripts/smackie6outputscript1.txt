@@ -1,0 +1,116 @@
+--------------
+SHOW DATABASES
+--------------
+
+Database
+information_schema
+mysql
+performance_schema
+smackie6db
+--------------
+DROP DATABASE IF EXISTS smackie6db
+--------------
+
+--------------
+CREATE DATABASE smackie6db
+--------------
+
+--------------
+SHOW TABLES
+--------------
+
+--------------
+CREATE TABLE Customer
+(
+CustomerID int NOT NULL,
+FName VARCHAR(30) NOT NULL,
+LName VARCHAR(30) NOT NULL,
+Gender varchar(255) NOT NULL,
+Email varchar(255) NOT NULL,
+PRIMARY KEY ( CustomerID )
+)
+--------------
+
+--------------
+CREATE TABLE Movie
+(
+MovieID int NOT NULL,
+MovieName VARCHAR(50) NOT NULL,
+ReleaseYear int NOT NULL,
+PRIMARY KEY ( MovieID )
+)
+--------------
+
+--------------
+CREATE TABLE Genre
+(
+GenreID int NOT NULL,
+Genre varchar(255) NOT NULL,
+PRIMARY KEY ( GenreID )
+)
+--------------
+
+--------------
+CREATE TABLE GenreMap
+(
+MapID int NOT NULL,
+MovieID int NOT NULL,
+GenreID int NOT NULL,
+PRIMARY KEY ( MapID ),
+FOREIGN KEY (MovieID) REFERENCES Movie(MovieID),
+FOREIGN KEY (GenreID) REFERENCES Genre(GenreID)
+)
+--------------
+
+--------------
+CREATE TABLE Theatre
+(
+RoomNumber int NOT NULL,
+Capacity int NOT NULL,
+PRIMARY KEY (RoomNumber)
+)
+--------------
+
+--------------
+CREATE TABLE Showing
+(
+ShowingID int NOT NULL,
+RoomNumber int NOT NULL,
+MovieID int NOT NULL,
+Date DATE,
+Time TIME,
+PRIMARY KEY ( ShowingID ),
+FOREIGN KEY (MovieID) REFERENCES Movie(MovieID)
+ON DELETE RESTRICT,
+FOREIGN KEY (RoomNumber) REFERENCES Theatre(RoomNumber)
+ON DELETE RESTRICT
+)
+--------------
+
+--------------
+CREATE TABLE Viewing
+(
+ViewingID int NOT NULL,
+CustomerID int NOT NULL,
+ShowingID int NOT NULL,
+Rating int NOT NULL,
+TicketCost int NOT NULL,
+PRIMARY KEY ( ViewingID ),
+FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
+ON DELETE CASCADE,
+FOREIGN KEY (ShowingID) REFERENCES Showing(ShowingID)
+)
+--------------
+
+--------------
+SHOW TABLES
+--------------
+
+Tables_in_smackie6db
+Customer
+Genre
+GenreMap
+Movie
+Showing
+Theatre
+Viewing

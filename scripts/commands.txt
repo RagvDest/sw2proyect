@@ -1,0 +1,5 @@
+sudo mysql --verbose -pcs3319
+sudo mysql --verbose -pcs3319 < smackie6script1.txt  > smackie6outputscript1.txt 2>&1
+sudo mysql --verbose -pcs3319 < smackie6script2.txt  > smackie6outputscript2.txt 2>&1
+sudo mysql --verbose -pcs3319 < smackie6script3.txt  > smackie6outputscript3.txt 2>&1
+sudo mysql --verbose -pcs3319 < smackie6script4.txt  > smackie6outputscript4.txt 2>&1

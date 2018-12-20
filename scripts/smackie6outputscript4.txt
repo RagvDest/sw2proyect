@@ -1,0 +1,122 @@
+--------------
+CREATE VIEW v AS
+SELECT FName, LName, MovieName, Viewing.Rating AS "Rating"
+FROM Customer
+JOIN Viewing
+ON Viewing.CustomerID = Customer.CustomerID
+JOIN Showing
+ON Showing.ShowingID = Viewing.ShowingID
+JOIN Movie
+ON Movie.MovieID = Showing.MovieID
+--------------
+
+--------------
+SELECT * FROM v
+--------------
+
+FName	LName	MovieName	Rating
+Laura	Reid	Star Wars	5
+Laura	Reid	The Martian	1
+Laura	Reid	Star Wars	5
+Laura	Reid	Tommy Boy	4
+Scott	Mackie	Star Wars	5
+Scott	Mackie	The Martian	1
+Scott	Mackie	The Bourne Ultimatum	5
+Bill	Clinton	Star Wars	5
+Donald	Trump	Star Wars	5
+Chelsea	Clinton	Star Wars	5
+Sandra	Bullock	Two Weeks Notice	5
+Sandra	Bullock	Star Wars	5
+--------------
+SELECT * FROM Customer
+--------------
+
+CustomerID	FName	LName	Gender	Email
+222	Laura	Reid	F	lreid@csd.uwo.ca
+223	Scott	Mackie	M	smackie6@uwo.ca
+224	Bill	Clinton	M	billy@prez.com
+225	Hilary	Clinton	F	nextprez@pres.com
+226	Donald	Trump	M	nextprezalso@prez.com
+227	Chelsea	Clinton	F	firstdaug@prez.com
+228	Sue	Trump	F	apprentice@trump.com
+229	Sandra	Bullock	F	sandy@blindside.com
+--------------
+SELECT * FROM Viewing
+--------------
+
+ViewingID	CustomerID	ShowingID	Rating	TicketCost
+1	222	333	5	4
+2	222	340	1	12
+3	222	334	5	10
+4	222	346	4	5
+5	223	334	5	30
+6	223	340	1	5
+7	224	334	5	20
+8	226	334	5	100
+9	227	334	5	5
+10	229	347	5	12
+11	229	334	5	5
+12	223	348	5	14
+--------------
+DELETE
+FROM Customer
+WHERE LName = "Mackie"
+--------------
+
+--------------
+SELECT * FROM Customer
+--------------
+
+CustomerID	FName	LName	Gender	Email
+222	Laura	Reid	F	lreid@csd.uwo.ca
+224	Bill	Clinton	M	billy@prez.com
+225	Hilary	Clinton	F	nextprez@pres.com
+226	Donald	Trump	M	nextprezalso@prez.com
+227	Chelsea	Clinton	F	firstdaug@prez.com
+228	Sue	Trump	F	apprentice@trump.com
+229	Sandra	Bullock	F	sandy@blindside.com
+--------------
+SELECT * FROM Viewing
+--------------
+
+ViewingID	CustomerID	ShowingID	Rating	TicketCost
+1	222	333	5	4
+2	222	340	1	12
+3	222	334	5	10
+4	222	346	4	5
+7	224	334	5	20
+8	226	334	5	100
+9	227	334	5	5
+10	229	347	5	12
+11	229	334	5	5
+--------------
+SELECT * FROM Theatre
+--------------
+
+RoomNumber	Capacity
+1	30
+2	5
+3	100
+4	30
+5	6
+--------------
+DELETE
+FROM Showing
+WHERE RoomNumber = 3
+--------------
+
+--------------
+DELETE
+FROM Theatre
+WHERE RoomNumber = 3
+--------------
+
+--------------
+SELECT * FROM Theatre
+--------------
+
+RoomNumber	Capacity
+1	30
+2	5
+4	30
+5	6

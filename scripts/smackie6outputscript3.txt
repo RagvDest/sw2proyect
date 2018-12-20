@@ -1,0 +1,259 @@
+--------------
+SELECT LName
+FROM Customer
+GROUP BY LName
+HAVING COUNT(LName) > 1
+--------------
+
+LName
+Clinton
+Trump
+--------------
+SELECT LName
+FROM Customer
+GROUP BY LName
+HAVING COUNT(LName) = 1
+--------------
+
+LName
+Bullock
+Mackie
+Reid
+--------------
+SELECT FName, LName, Email
+FROM Customer
+WHERE Gender = "M"
+--------------
+
+FName	LName	Email
+Scott	Mackie	smackie6@uwo.ca
+Bill	Clinton	billy@prez.com
+Donald	Trump	nextprezalso@prez.com
+--------------
+SELECT Movie.MovieName
+FROM Movie
+JOIN GenreMap
+ON GenreMap.MovieID = Movie.MovieID
+JOIN Genre
+ON Genre.GenreID = GenreMap.GenreID
+WHERE Genre.Genre = "comedy"
+--------------
+
+MovieName
+There's Something About Mary
+Two Weeks Notice
+Back To The Future
+--------------
+SELECT MovieName, ReleaseYear
+FROM Movie
+WHERE ReleaseYear > 1989
+AND ReleaseYear < 2000
+ORDER BY ReleaseYear
+--------------
+
+MovieName	ReleaseYear
+Pulp Fiction	1994
+Tommy Boy	1995
+Midnight In The Garden Of Good and Evil	1997
+There's Something About Mary	1998
+--------------
+SELECT DATE_FORMAT(Showing.Date, "%M-%d-%Y") AS "Showing Date", TIME_FORMAT(Showing.Time, "%r") AS "Showing Time", Theatre.Capacity 
+FROM Showing
+JOIN Theatre
+ON Theatre.RoomNumber = Showing.RoomNumber
+JOIN Movie
+ON Movie.MovieID = Showing.MovieID
+WHERE Movie.MovieName = "Star Wars"
+--------------
+
+Showing Date	Showing Time	Capacity
+February-11-2015	09:30:00 PM	30
+February-11-2015	07:30:00 PM	5
+--------------
+SELECT MovieName
+FROM Movie
+WHERE MovieName LIKE "%the%"
+--------------
+
+MovieName
+The Martian
+The Empire Strikes Back
+Midnight In The Garden Of Good and Evil
+There's Something About Mary
+Back To The Future
+The Bourne Ultimatum
+--------------
+SELECT FName, LName, MovieName
+FROM Customer
+JOIN Viewing
+ON Viewing.CustomerID = Customer.CustomerID
+JOIN Showing
+ON Showing.ShowingID = Viewing.ShowingID
+JOIN Movie
+ON Movie.MovieID = Showing.MovieID
+WHERE Showing.Date > "2015-03-15"
+--------------
+
+FName	LName	MovieName
+Laura	Reid	The Martian
+Laura	Reid	Tommy Boy
+Scott	Mackie	The Martian
+Sandra	Bullock	Two Weeks Notice
+--------------
+SELECT distinct(FName), LName
+FROM Customer
+JOIN Viewing
+ON Viewing.CustomerID = Customer.CustomerID
+JOIN Showing
+ON Showing.ShowingID = Viewing.ShowingID
+JOIN Movie
+ON Movie.MovieID = Showing.MovieID
+JOIN GenreMap
+ON GenreMap.MovieID = Movie.MovieID
+JOIN Genre
+ON Genre.GenreID = GenreMap.GenreID
+WHERE Genre.Genre = "scifi"
+--------------
+
+FName	LName
+Laura	Reid
+Scott	Mackie
+Bill	Clinton
+Donald	Trump
+Chelsea	Clinton
+Sandra	Bullock
+--------------
+SELECT MovieName
+FROM Showing
+RIGHT JOIN Movie
+ON Movie.MovieID = Showing.MovieID
+WHERE ShowingID IS NULL
+--------------
+
+MovieName
+The Empire Strikes Back
+Midnight In The Garden Of Good and Evil
+--------------
+SELECT MovieName
+FROM Customer
+JOIN Viewing
+ON Viewing.CustomerID = Customer.CustomerID
+RIGHT JOIN Showing
+ON Showing.ShowingID = Viewing.ShowingID
+JOIN Movie
+ON Movie.MovieID = Showing.MovieID
+WHERE ViewingID IS NULL
+--------------
+
+MovieName
+Up
+Pulp Fiction
+Aloha
+Aloha
+The Martian
+Die Hard
+There's Something About Mary
+Two Weeks Notice
+Back To The Future
+--------------
+SELECT MovieName
+FROM Customer
+JOIN Viewing
+ON Viewing.CustomerID = Customer.CustomerID
+RIGHT JOIN Showing
+ON Showing.ShowingID = Viewing.ShowingID
+RIGHT JOIN Movie
+ON Movie.MovieID = Showing.MovieID
+WHERE Viewing.ViewingID IS NULL
+OR Showing.ShowingID IS NULL
+--------------
+
+MovieName
+Up
+Pulp Fiction
+Aloha
+Aloha
+The Martian
+The Empire Strikes Back
+Midnight In The Garden Of Good and Evil
+Die Hard
+There's Something About Mary
+Two Weeks Notice
+Back To The Future
+--------------
+SELECT ReleaseYear, COUNT(ReleaseYear)
+FROM Movie
+GROUP BY ReleaseYear
+HAVING COUNT(ReleaseYear) > 0
+--------------
+
+ReleaseYear	COUNT(ReleaseYear)
+1977	1
+1980	1
+1985	1
+1988	1
+1994	1
+1995	1
+1997	1
+1998	1
+2002	2
+2009	1
+2015	2
+--------------
+SELECT MovieName, 
+(SELECT SUM(TicketCost)
+	FROM Customer
+	JOIN Viewing
+	ON Viewing.CustomerID = Customer.CustomerID
+	JOIN Showing
+	ON Showing.ShowingID = Viewing.ShowingID
+	JOIN Movie mm
+	ON mm.MovieID = Showing.MovieID
+	WHERE mm.MovieID = m.MovieID) AS "Total"
+FROM Movie m
+--------------
+
+MovieName	Total
+Star Wars	174
+Up	NULL
+Pulp Fiction	NULL
+Aloha	NULL
+The Martian	17
+The Empire Strikes Back	NULL
+Midnight In The Garden Of Good and Evil	NULL
+Tommy Boy	5
+Die Hard	NULL
+There's Something About Mary	NULL
+Two Weeks Notice	12
+Back To The Future	NULL
+The Bourne Ultimatum	14
+--------------
+SELECT Capacity, 
+(SELECT COUNT(ViewingID)
+	FROM Theatre
+	JOIN Showing ss
+	ON ss.RoomNumber = Theatre.RoomNumber
+	JOIN Viewing
+	ON Viewing.ShowingID = ss.ShowingId
+	WHERE ss.ShowingID = s.ShowingID) AS "Number of People"
+FROM Showing s
+JOIN Theatre
+ON s.RoomNumber = Theatre.RoomNumber
+--------------
+
+Capacity	Number of People
+30	1
+30	0
+30	0
+30	2
+30	0
+30	0
+30	1
+30	1
+5	6
+5	0
+5	0
+5	0
+5	1
+100	0
+100	0

@@ -1,0 +1,315 @@
+--------------
+SHOW TABLES
+--------------
+
+Tables_in_smackie6db
+Customer
+Genre
+GenreMap
+Movie
+Showing
+Theatre
+Viewing
+--------------
+DELETE FROM Viewing
+--------------
+
+--------------
+DELETE FROM Showing
+--------------
+
+--------------
+DELETE FROM Theatre
+--------------
+
+--------------
+DELETE FROM GenreMap
+--------------
+
+--------------
+DELETE FROM Genre
+--------------
+
+--------------
+DELETE FROM Movie
+--------------
+
+--------------
+DELETE FROM Customer
+--------------
+
+--------------
+LOAD DATA INFILE '/tmp/fall2015data.txt' INTO TABLE Movie
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\r\n'
+--------------
+
+--------------
+INSERT INTO Movie(MovieID, MovieName, ReleaseYear)
+VALUES (112,"The Bourne Ultimatum",2002)
+--------------
+
+--------------
+SELECT * FROM Movie
+--------------
+
+MovieID	MovieName	ReleaseYear
+100	Star Wars	1977
+101	Up	2009
+102	Pulp Fiction	1994
+103	Aloha	2015
+104	The Martian	2015
+105	The Empire Strikes Back	1980
+106	Midnight In The Garden Of Good and Evil	1997
+107	Tommy Boy	1995
+108	Die Hard	1988
+109	There's Something About Mary	1998
+110	Two Weeks Notice	2002
+111	Back To The Future	1985
+112	The Bourne Ultimatum	2002
+--------------
+INSERT INTO Customer(CustomerID, FName, LName, Gender, Email)
+VALUES (222,"Laura","Reid","F","lreid@csd.uwo.ca"),
+(223,"Scott","Mackie","M","smackie6@uwo.ca"),
+(224,"Bill","Clinton","M","billy@prez.com"),
+(225,"Hilary","Clinton","F","nextprez@pres.com"),
+(226,"Donald","Trump","M","nextprezalso@prez.com"),
+(227,"Chelsea","Clinton","F","firstdaug@prez.com"),
+(228,"Ivanka","Trump","F","apprentice@trump.com"),
+(229,"Sandra","Bullock","F","sandy@blindside.com")
+--------------
+
+--------------
+SELECT * FROM Customer
+--------------
+
+CustomerID	FName	LName	Gender	Email
+222	Laura	Reid	F	lreid@csd.uwo.ca
+223	Scott	Mackie	M	smackie6@uwo.ca
+224	Bill	Clinton	M	billy@prez.com
+225	Hilary	Clinton	F	nextprez@pres.com
+226	Donald	Trump	M	nextprezalso@prez.com
+227	Chelsea	Clinton	F	firstdaug@prez.com
+228	Ivanka	Trump	F	apprentice@trump.com
+229	Sandra	Bullock	F	sandy@blindside.com
+--------------
+INSERT INTO Genre(GenreID, Genre)
+VALUES (1, "Action"),
+(2, "SciFi"),
+(3, "Animated"),
+(4, "Romance"),
+(5, "Drama"),
+(6, "Comedy")
+--------------
+
+--------------
+SELECT * FROM Genre
+--------------
+
+GenreID	Genre
+1	Action
+2	SciFi
+3	Animated
+4	Romance
+5	Drama
+6	Comedy
+--------------
+INSERT INTO GenreMap(MapID, MovieID, GenreID)
+VALUES (1, 100, 1),
+(2, 100, 2),
+(3, 101, 3),
+(4, 102, 1),
+(5, 103, 4),
+(6, 104, 1),
+(7, 104, 2),
+(8, 105, 1),
+(9, 105, 2),
+(10, 106, 5),
+(11, 107, 1),
+(12, 108, 1),
+(13, 109, 6),
+(14, 110, 6),
+(15, 110, 4),
+(16, 111, 2),
+(17, 111, 1),
+(18, 111, 6),
+(19, 112, 1)
+--------------
+
+--------------
+SELECT * FROM GenreMap
+--------------
+
+MapID	MovieID	GenreID
+1	100	1
+2	100	2
+3	101	3
+4	102	1
+5	103	4
+6	104	1
+7	104	2
+8	105	1
+9	105	2
+10	106	5
+11	107	1
+12	108	1
+13	109	6
+14	110	6
+15	110	4
+16	111	2
+17	111	1
+18	111	6
+19	112	1
+--------------
+INSERT INTO Theatre(RoomNumber, Capacity)
+VALUES(1, 30),
+(2, 5),
+(3, 100),
+(4, 30),
+(5, 6)
+--------------
+
+--------------
+SELECT * FROM Theatre
+--------------
+
+RoomNumber	Capacity
+1	30
+2	5
+3	100
+4	30
+5	6
+--------------
+INSERT INTO Showing(MovieID, ShowingID, Date, Time, RoomNumber)
+VALUES (100, 333, "2015-02-11", "21:30 PM", 1),
+(100, 334, "2015-02-11", "19:30", 2),
+(101, 335, "2015-02-11", "19:00", 3),
+(102, 337, "2015-02-12", "19:00", 1),
+(103, 338, "2015-03-12", "21:00", 1),
+(103, 339, "2015-03-13", "19:00", 2),
+(104, 340, "2015-03-20", "19:00", 1),
+(104, 341, "2015-03-20", "21:00", 1),
+(107, 346, "2015-03-22", "20:30", 2),
+(108, 345, "2015-03-22", "21:00", 3),
+(109, 342, "2015-03-20", "19:00", 2),
+(110, 344, "2015-03-21", "19:00", 1),
+(110, 347, "2015-03-23", "22:00", 1),
+(111, 336, "2015-02-11", "21:00", 2),
+(112, 348, "2015-02-14", "20:00", 1)
+--------------
+
+--------------
+SELECT * FROM Showing
+--------------
+
+ShowingID	RoomNumber	MovieID	Date	Time
+333	1	100	2015-02-11	21:30:00
+334	2	100	2015-02-11	19:30:00
+335	3	101	2015-02-11	19:00:00
+336	2	111	2015-02-11	21:00:00
+337	1	102	2015-02-12	19:00:00
+338	1	103	2015-03-12	21:00:00
+339	2	103	2015-03-13	19:00:00
+340	1	104	2015-03-20	19:00:00
+341	1	104	2015-03-20	21:00:00
+342	2	109	2015-03-20	19:00:00
+344	1	110	2015-03-21	19:00:00
+345	3	108	2015-03-22	21:00:00
+346	2	107	2015-03-22	20:30:00
+347	1	110	2015-03-23	22:00:00
+348	1	112	2015-02-14	20:00:00
+--------------
+INSERT INTO Viewing(ViewingID, ShowingID, Rating, TicketCost, CustomerID)
+VALUES (1, 333, 5, 4, 222),
+(2, 340, 1, 12, 222),
+(3, 334, 3, 10, 222),
+(4, 346, 4, 5, 222),
+(5, 334, 5, 30, 223),
+(6, 340, 1, 5, 223),
+(7, 334, 4, 20, 224),
+(8, 334, 2, 100, 226),
+(9, 334, 1, 5, 227),
+(10, 347, 5, 12, 229),
+(11, 334, 3, 5, 229),
+(12, 348, 5, 14, 223)
+--------------
+
+--------------
+SELECT * FROM Viewing
+--------------
+
+ViewingID	CustomerID	ShowingID	Rating	TicketCost
+1	222	333	5	4
+2	222	340	1	12
+3	222	334	3	10
+4	222	346	4	5
+5	223	334	5	30
+6	223	340	1	5
+7	224	334	4	20
+8	226	334	2	100
+9	227	334	1	5
+10	229	347	5	12
+11	229	334	3	5
+12	223	348	5	14
+--------------
+SELECT * FROM Customer
+--------------
+
+CustomerID	FName	LName	Gender	Email
+222	Laura	Reid	F	lreid@csd.uwo.ca
+223	Scott	Mackie	M	smackie6@uwo.ca
+224	Bill	Clinton	M	billy@prez.com
+225	Hilary	Clinton	F	nextprez@pres.com
+226	Donald	Trump	M	nextprezalso@prez.com
+227	Chelsea	Clinton	F	firstdaug@prez.com
+228	Ivanka	Trump	F	apprentice@trump.com
+229	Sandra	Bullock	F	sandy@blindside.com
+--------------
+UPDATE Customer SET FName = "Sue" WHERE FName = "Ivanka"
+--------------
+
+--------------
+SELECT * FROM Customer
+--------------
+
+CustomerID	FName	LName	Gender	Email
+222	Laura	Reid	F	lreid@csd.uwo.ca
+223	Scott	Mackie	M	smackie6@uwo.ca
+224	Bill	Clinton	M	billy@prez.com
+225	Hilary	Clinton	F	nextprez@pres.com
+226	Donald	Trump	M	nextprezalso@prez.com
+227	Chelsea	Clinton	F	firstdaug@prez.com
+228	Sue	Trump	F	apprentice@trump.com
+229	Sandra	Bullock	F	sandy@blindside.com
+--------------
+SELECT * FROM Movie JOIN Showing ON Movie.MovieID = Showing.MovieID JOIN Viewing ON Viewing.ShowingID = Showing.ShowingID WHERE MovieName = "Star Wars"
+--------------
+
+MovieID	MovieName	ReleaseYear	ShowingID	RoomNumber	MovieID	Date	Time	ViewingID	CustomerID	ShowingID	Rating	TicketCost
+100	Star Wars	1977	333	1	100	2015-02-11	21:30:00	1	222	333	5	4
+100	Star Wars	1977	334	2	100	2015-02-11	19:30:00	3	222	334	3	10
+100	Star Wars	1977	334	2	100	2015-02-11	19:30:00	5	223	334	5	30
+100	Star Wars	1977	334	2	100	2015-02-11	19:30:00	7	224	334	4	20
+100	Star Wars	1977	334	2	100	2015-02-11	19:30:00	8	226	334	2	100
+100	Star Wars	1977	334	2	100	2015-02-11	19:30:00	9	227	334	1	5
+100	Star Wars	1977	334	2	100	2015-02-11	19:30:00	11	229	334	3	5
+--------------
+UPDATE Viewing
+JOIN Showing ON Showing.ShowingID = Viewing.ShowingID 
+JOIN Movie ON Movie.MovieID = Showing.MovieID
+SET Viewing.Rating = "5"
+WHERE MovieName = "Star Wars"
+--------------
+
+--------------
+SELECT * FROM Movie JOIN Showing ON Movie.MovieID = Showing.MovieID JOIN Viewing ON Viewing.ShowingID = Showing.ShowingID WHERE MovieName = "Star Wars"
+--------------
+
+MovieID	MovieName	ReleaseYear	ShowingID	RoomNumber	MovieID	Date	Time	ViewingID	CustomerID	ShowingID	Rating	TicketCost
+100	Star Wars	1977	333	1	100	2015-02-11	21:30:00	1	222	333	5	4
+100	Star Wars	1977	334	2	100	2015-02-11	19:30:00	3	222	334	5	10
+100	Star Wars	1977	334	2	100	2015-02-11	19:30:00	5	223	334	5	30
+100	Star Wars	1977	334	2	100	2015-02-11	19:30:00	7	224	334	5	20
+100	Star Wars	1977	334	2	100	2015-02-11	19:30:00	8	226	334	5	100
+100	Star Wars	1977	334	2	100	2015-02-11	19:30:00	9	227	334	5	5
+100	Star Wars	1977	334	2	100	2015-02-11	19:30:00	11	229	334	5	5

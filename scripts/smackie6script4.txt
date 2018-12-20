@@ -1,0 +1,39 @@
+USE smackie6db;
+
+# View
+CREATE VIEW v AS
+SELECT FName, LName, MovieName, Viewing.Rating AS "Rating"
+FROM Customer
+JOIN Viewing
+ON Viewing.CustomerID = Customer.CustomerID
+JOIN Showing
+ON Showing.ShowingID = Viewing.ShowingID
+JOIN Movie
+ON Movie.MovieID = Showing.MovieID;
+
+SELECT * FROM v;
+
+# Deletion
+SELECT * FROM Customer;
+SELECT * FROM Viewing;
+
+DELETE
+FROM Customer
+WHERE LName = "Mackie";
+
+SELECT * FROM Customer;
+SELECT * FROM Viewing;
+
+
+# Room Deletion - 2 Steps Required
+SELECT * FROM Theatre;
+
+DELETE
+FROM Showing
+WHERE RoomNumber = 3;
+
+DELETE
+FROM Theatre
+WHERE RoomNumber = 3;
+
+SELECT * FROM Theatre;

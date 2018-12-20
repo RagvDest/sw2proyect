@@ -1,0 +1,145 @@
+USE smackie6db;
+
+# 1
+SELECT LName
+FROM Customer
+GROUP BY LName
+HAVING COUNT(LName) > 1;
+
+# 2
+SELECT LName
+FROM Customer
+GROUP BY LName
+HAVING COUNT(LName) = 1;
+
+# 3
+SELECT FName, LName, Email
+FROM Customer
+WHERE Gender = "M";
+
+# 4
+SELECT Movie.MovieName
+FROM Movie
+JOIN GenreMap
+ON GenreMap.MovieID = Movie.MovieID
+JOIN Genre
+ON Genre.GenreID = GenreMap.GenreID
+WHERE Genre.Genre = "comedy";
+
+# 5
+SELECT MovieName, ReleaseYear
+FROM Movie
+WHERE ReleaseYear > 1989
+AND ReleaseYear < 2000
+ORDER BY ReleaseYear;
+
+# 6
+SELECT DATE_FORMAT(Showing.Date, "%M-%d-%Y") AS "Showing Date", TIME_FORMAT(Showing.Time, "%r") AS "Showing Time", Theatre.Capacity 
+FROM Showing
+JOIN Theatre
+ON Theatre.RoomNumber = Showing.RoomNumber
+JOIN Movie
+ON Movie.MovieID = Showing.MovieID
+WHERE Movie.MovieName = "Star Wars";
+
+# 7
+SELECT MovieName
+FROM Movie
+WHERE MovieName LIKE "%the%";
+
+# 8
+SELECT FName, LName, MovieName
+FROM Customer
+JOIN Viewing
+ON Viewing.CustomerID = Customer.CustomerID
+JOIN Showing
+ON Showing.ShowingID = Viewing.ShowingID
+JOIN Movie
+ON Movie.MovieID = Showing.MovieID
+WHERE Showing.Date > "2015-03-15";
+
+# 9
+SELECT distinct(FName), LName
+FROM Customer
+JOIN Viewing
+ON Viewing.CustomerID = Customer.CustomerID
+JOIN Showing
+ON Showing.ShowingID = Viewing.ShowingID
+JOIN Movie
+ON Movie.MovieID = Showing.MovieID
+JOIN GenreMap
+ON GenreMap.MovieID = Movie.MovieID
+JOIN Genre
+ON Genre.GenreID = GenreMap.GenreID
+WHERE Genre.Genre = "scifi";
+
+# 10
+SELECT MovieName
+FROM Showing
+RIGHT JOIN Movie
+ON Movie.MovieID = Showing.MovieID
+WHERE ShowingID IS NULL;
+
+# 11
+SELECT MovieName
+FROM Customer
+JOIN Viewing
+ON Viewing.CustomerID = Customer.CustomerID
+RIGHT JOIN Showing
+ON Showing.ShowingID = Viewing.ShowingID
+JOIN Movie
+ON Movie.MovieID = Showing.MovieID
+WHERE ViewingID IS NULL;
+
+# 12
+SELECT MovieName
+FROM Customer
+JOIN Viewing
+ON Viewing.CustomerID = Customer.CustomerID
+RIGHT JOIN Showing
+ON Showing.ShowingID = Viewing.ShowingID
+RIGHT JOIN Movie
+ON Movie.MovieID = Showing.MovieID
+WHERE Viewing.ViewingID IS NULL
+OR Showing.ShowingID IS NULL;
+
+# 13
+SELECT ReleaseYear, COUNT(ReleaseYear)
+FROM Movie
+GROUP BY ReleaseYear
+HAVING COUNT(ReleaseYear) > 0;
+
+# 14
+SELECT MovieName, 
+(SELECT SUM(TicketCost)
+	FROM Customer
+	JOIN Viewing
+	ON Viewing.CustomerID = Customer.CustomerID
+	JOIN Showing
+	ON Showing.ShowingID = Viewing.ShowingID
+	JOIN Movie mm
+	ON mm.MovieID = Showing.MovieID
+	WHERE mm.MovieID = m.MovieID) AS "Total"
+FROM Movie m;
+
+# 15
+SELECT Capacity, 
+(SELECT COUNT(ViewingID)
+	FROM Theatre
+	JOIN Showing ss
+	ON ss.RoomNumber = Theatre.RoomNumber
+	JOIN Viewing
+	ON Viewing.ShowingID = ss.ShowingId
+	WHERE ss.ShowingID = s.ShowingID) AS "Number of People"
+FROM Showing s
+JOIN Theatre
+ON s.RoomNumber = Theatre.RoomNumber;
+
+
+
+
+
+
+
+
+
