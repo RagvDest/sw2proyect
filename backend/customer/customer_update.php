@@ -18,12 +18,29 @@ if(isset($_POST['SubmitCustomerUpdate'])){ //check if form was submitted
     };
     echo "<meta http-equiv='refresh' content='0'>";
 }
+
+if(isset($_POST['filter'])){
+    $valueToSearch=$_POST['myInput'];
+        $qry="select * from customer where CONCAT(fname,lname) LIKE '%".$valueToSearch."%'";
+        $result=filterS($qry,$mysqli);
+}
+else{
+    $qry="select * from customer";
+    $result=filterS($qry,$mysqli);
+}
+
+
+function filterS($qry,$mysqli){
+    $filter_search=$mysqli->query($qry);    
+    return $filter_search;
+}
+
 ?>
 
 
-<?php $result = $mysqli->query("SELECT * FROM Customer"); ?>
 <form action="" method="post">
-	<div class="col-md-11">
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
         <h1>Customer Update</h1>
         <div class="row">
 			<table class="table table-striped">
@@ -31,48 +48,66 @@ if(isset($_POST['SubmitCustomerUpdate'])){ //check if form was submitted
 					<th>Customer</th>
 				</tr>
 				<tr>
-					<td>
+					<th>
+                    	<input type="text" style="width: 50%;border-radius: 5px;" name="myInput" name="valueToSearch" placeholder="Buscar Cliente..." title="Buscar Cliente">
+                	</th>
+                	<th>
+                    	<input type="submit" name="filter" value="Buscar">
+                	</th>
+				</tr>
+				<tr>
+					<th>
 						<select class="btn btn-default dropdown-toggle" type="button"  name="CustomerID">
 							<?php while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){ ?>
 								<option value="<?php echo $row['CustomerID'] ?>"><?php echo $row['CustomerID'] . " - " . $row['FName'] . " " . $row['LName'] ?></option>
 							<?php } ?>
 						</select>
-					</td>
+					</th>
 				</tr>
 			</table>
 		</div>
 	</div>
-	<div class="col-md-1">
+	<div class="col-md-4" style="height: 240px;">
 		
 	</div>
-
-	<div class="col-md-11">
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
 		<div class="row">
 			<table class="table table-striped">
 				<tr>
 					<th>FName</th>
-					<th>LName</th>
-					<th>Gender</th>
-					<th>Email</th>
+					<th><input type="text" name="FName"/></th>
+					
 				</tr>
 				<tr>
-					<td><input type="text" name="FName"/></td>
-					<td><input type="text" name="LName"/></td>
-                    <td>
-                    <select class="btn btn-default dropdown-toggle" type="button"  name="Gender">
+					<th>LName</th>
+					<th><input type="text" name="LName"/></th>
+				</tr>
+				<tr>
+					<th>Gender</th>
+					<th><select class="btn btn-default dropdown-toggle" type="button"  name="Gender">
                         <option value="M">M</option>
                         <option value="F">F</option>
-                    </select>
-                    </td>
-                    <td><input type="text" name="Email"/></td>
+                    </select></th>
+                <tr>
+                	<th>Email</th>
+                
+					<th>
+						<input type="text" name="Email"/>
+					</th>
+				</tr>
+
+				
+				<tr>
+					<th><div class="col-md-1">
+		<br>
+		<button type="submit" class="btn btn-default btn-lg" name="SubmitCustomerUpdate">Update</button>
+	</div></th>
 				</tr>
 			</table>
 		</div>
 	</div>
-	<div class="col-md-1">
-		<br>
-		<button type="submit" class="btn btn-default btn-lg" name="SubmitCustomerUpdate">Update</button>
-	</div>
+	
 </form>
 
 <?php $result->close(); ?>

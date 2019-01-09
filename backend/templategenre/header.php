@@ -29,6 +29,8 @@ if ($mysqli->connect_errno) {
 				<a class="navbar-brand" href="../genre/genre_add.php">Añadir</a>
 				<a class="navbar-brand" href="../genre/genre_delete.php">Eliminar</a>
 				<a class="navbar-brand" href="../genre/genre_update.php">Actualizar</a>
+				<a class="navbar-brand" href="../genre/genre_search.php">Buscar</a>
+
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -41,4 +43,3 @@ if ($mysqli->connect_errno) {
 	</div>
 </nav>
 <div class="container">
-<?php include "../genre/genre_list.php" ?>

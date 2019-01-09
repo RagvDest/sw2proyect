@@ -8,18 +8,43 @@ if(isset($_POST['SubmitGenreUpdate'])){ //check if form was submitted
 	};
 	echo "<meta http-equiv='refresh' content='0'>";
 }
+
+if(isset($_POST['filter'])){
+    $valueToSearch=$_POST['myInput'];
+        $qry="select * from genre where genre LIKE '%".$valueToSearch."%'";
+        $result=filterS($qry,$mysqli);
+}
+else{
+    $qry="select * from genre";
+    $result=filterS($qry,$mysqli);
+}
+
+
+function filterS($qry,$mysqli){
+    $filter_search=$mysqli->query($qry);    
+    return $filter_search;
+}
+
 ?>
 
 
-<?php $result = $mysqli->query("SELECT * FROM Genre"); ?>
 <form action="" method="post">
-	<div class="col-md-11">
+	<div class=col-md-4></div>
+	<div class="col-md-4">
 
 		<h1>Actualizar Género</h1>
 		<div class="row">
 			<table class="table table-striped">
 				<tr>
 					<th>Género</th>
+				</tr>
+				<tr>
+					<th>
+                    	<input type="text" style="width: 50%;border-radius: 5px;" name="myInput" name="valueToSearch" placeholder="Buscar Género..." title="Buscar Género">
+                	</th>
+                	<th>
+                    	<input type="submit" name="filter" value="Buscar">
+                	</th>
 				</tr>
 				<tr>
 					<td>
@@ -33,11 +58,10 @@ if(isset($_POST['SubmitGenreUpdate'])){ //check if form was submitted
 			</table>
 		</div>
 	</div>
-	<div class="col-md-1">
-		<br><br><br><br>
+	<div class="col-md-4" style="height: 240px;">
 	</div>
-
-	<div class="col-md-11">
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
 		<div class="row">
 			<table class="table table-striped">
 				<tr>
@@ -46,13 +70,14 @@ if(isset($_POST['SubmitGenreUpdate'])){ //check if form was submitted
 				<tr>
 					<td><input type="text" name="Genre"/></td>
 				</tr>
+				<tr>
+					<th></th>
+					<th><button type="submit" class="btn btn-default btn-lg" name="SubmitGenreUpdate">Update</button></th>
+				</tr>
 			</table>
 		</div>
 	</div>
-	<div class="col-md-1">
-		<br>
-		<button type="submit" class="btn btn-default btn-lg" name="SubmitGenreUpdate">Update</button>
-	</div>
+	
 </form>
 
 <?php $result->close(); ?>

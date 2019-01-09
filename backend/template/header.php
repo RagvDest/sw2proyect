@@ -29,6 +29,7 @@ if ($mysqli->connect_errno) {
 				<a class="navbar-brand" href="../customer/customer_add.php">Añadir</a>
 				<a class="navbar-brand" href="../customer/customer_delete.php">Eliminar</a>
 				<a class="navbar-brand" href="../customer/customer_update.php">Actualizar</a>
+				<a class="navbar-brand" href="../customer/customer_search.php">Buscar</a>
 
 			</div>
 
@@ -43,4 +44,3 @@ if ($mysqli->connect_errno) {
 </nav>
 <div class="container">
 
-<?php include '../customer/customer_list.php' ?>
