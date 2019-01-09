@@ -1,3 +1,4 @@
+<?php include '../templatesh/header.php' ?>
 <?php
 if(isset($_POST['SubmitShowingDelete'])) { //check if form was submitted
 	$result = $mysqli->query("DELETE FROM Showing WHERE ShowingID=" . $_POST['ShowingID']);
@@ -8,7 +9,8 @@ if(isset($_POST['SubmitShowingDelete'])) { //check if form was submitted
 <?php $result = $mysqli->query("SELECT * FROM Showing"); ?>
 
 <form action="" method="post">
-	<div class="col-md-11">
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
 		<div class="row">
 			<br>
 			<h1>Showing Delete</h1>
@@ -31,13 +33,14 @@ if(isset($_POST['SubmitShowingDelete'])) { //check if form was submitted
 						</select>
 					</td>
 				</tr>
+				<tr>
+
+					<th><button style="margin-left: 65%;" type="submit" class="btn btn-default btn-lg" name="SubmitShowingDelete">Delete</button></th>
+				</tr>
 			</table>
 		</div>
 	</div>
-	<div class="col-md-1">
-		<br><br><br><br>
-		<button type="submit" class="btn btn-default btn-lg" name="SubmitShowingDelete">Delete</button>
-	</div>
+	
 </form>
 
 <?php $result->close(); ?>
