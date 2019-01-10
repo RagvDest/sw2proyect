@@ -1,10 +1,9 @@
-<h1>Customer List</h1>
+<h1>Lista de películas</h1>
 
 <?php $result = $mysqli->query("SELECT * FROM Movie"); ?>
 
 <table class="table table-striped">
     <tr>
-        <th>MovieID</th>
         <th>MovieName</th>
         <th>ReleaseYear</th>
         <th>Genre</th>
@@ -17,7 +16,6 @@
         $value3 = mysqli_fetch_array($result3, MYSQLI_ASSOC);
         ?>
         <tr>
-            <td><?php echo $row['MovieID']; ?></td>
             <td><?php echo $row['MovieName']; ?></td>
             <td><?php echo $row['ReleaseYear']; ?></td>
             <td><?php echo $value3["Genre"]; ?></td>

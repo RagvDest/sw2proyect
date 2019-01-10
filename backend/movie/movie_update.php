@@ -1,3 +1,5 @@
+<?php include '../templatemovie/header.php'; ?>
+
 <?php
 if(isset($_POST['SubmitMovieUpdate'])){ //check if form was submitted
 	if($_POST['MovieName']){
@@ -19,11 +21,11 @@ if(isset($_POST['SubmitMovieUpdate'])){ //check if form was submitted
 	<div class="col-md-11">
 		<br><br>
 
-		<h1>Movie Update</h1>
+		<h1>Actualizar película</h1>
 		<div class="row">
 			<table class="table table-striped">
 				<tr>
-					<th>Movie</th>
+					<th>Película:</th>
 				</tr>
 				<tr>
 					<td>
@@ -48,13 +50,16 @@ if(isset($_POST['SubmitMovieUpdate'])){ //check if form was submitted
 		<div class="row">
 			<table class="table table-striped">
 				<tr>
-					<th>MovieName</th>
-					<th>ReleaseYear</th>
-					<th>Genre</th>
+					<th>Nombre de la película:</th>
+					<th><input type="text" name="MovieName"></th>
 				</tr>
 				<tr>
-					<td><input type="text" name="MovieName"/></td>
-					<td><input type="text" name="ReleaseYear"/></td>
+					<th>Año de lanzamiento:</th>
+					<th><input type="text" name="MovieName"></th>
+				</tr>
+					<th>Género:</th>
+				</tr>
+				<tr>
 					<td>
 						<select class="btn btn-default dropdown-toggle" type="button"  name="GenreID">
 							<option value="">-</option>
@@ -67,9 +72,11 @@ if(isset($_POST['SubmitMovieUpdate'])){ //check if form was submitted
 			</table>
 		</div>
 	</div>
-	<div class="col-md-1">
+	<div class="col-md-2">
 		<button type="submit" class="btn btn-default btn-lg" name="SubmitMovieUpdate">Update</button>
 	</div>
 </form>
 
 <?php $result->close(); ?>
+
+<?php include '../templatemovie/footer.php'; ?>
