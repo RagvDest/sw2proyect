@@ -10,7 +10,7 @@
 </head>
 
 <?php
-$mysqli = new mysqli("localhost", "root", "", "smackie6db");
+$mysqli = new mysqli("localhost", "root", "123456789", "smackie6db");
 
 /* check connection */
 if ($mysqli->connect_errno) {
