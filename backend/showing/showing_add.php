@@ -1,7 +1,7 @@
 <?php include '../templatesh/header.php' ?>
 <?php
 if(isset($_POST['SubmitShowingAdd'])) { //check if form was submitted
-	$result = $mysqli->query("INSERT INTO Showing(MovieID, ShowingID, Date, Time, RoomNumber) VALUES (" . $_POST['MovieID'] . "," . $_POST['ShowingID'] . ",\"" . $_POST['Date'] . "\",\"" . $_POST['Time'] . "\"," . $_POST['RoomNumber'] . ")");
+	$result = $mysqli->query("INSERT INTO Showing(MovieID, Date, Time, RoomNumber) VALUES (" . $_POST['MovieID'] . ",\"" . $_POST['Date'] . "\",\"" . $_POST['Time'] . "\"," . $_POST['RoomNumber'] . ")");
     echo "<meta http-equiv='refresh' content='0'>";
 }
 ?>
