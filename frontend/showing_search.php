@@ -1,4 +1,4 @@
-<?php include '../templatesh/header.php' ?>
+<?php include 'templatesh/header.php' ?>
 <h1>Lista de Proyecciones</h1>
 
 <?php
@@ -60,4 +60,4 @@
 </form>
 <?php $search_result->close(); ?>
 
-<?php include '../template/footer.php' ?>
+<?php include 'template/footer.php' ?>
