@@ -1,11 +1,19 @@
 <?php include '../templatemovie/header.php'; ?>
 <?php
 if(isset($_POST['SubmitMovieAdd'])) { //check if form was submitted
-	$result = $mysqli->query("INSERT INTO Movie(MovieID, MovieName, ReleaseYear) VALUES (" . $_POST['MovieID'] . ",\"" . $_POST['MovieName'] . "\",\"" . $_POST['ReleaseYear'] . "\")");
+	$result = $mysqli->query("INSERT INTO Movie(MovieName,ReleaseYear) values(\"" . $_POST['MovieName'] . "\",\"" . $_POST['ReleaseYear'] . "\")");
     $result = $mysqli->query("SELECT MAX( MapID ) AS max FROM GenreMap");
 	$max_query = max(mysqli_fetch_array($result, MYSQLI_ASSOC));
 	$max_id = $max_query + 1;
-	$result = $mysqli->query("INSERT INTO GenreMap(MapID, MovieID, GenreID) VALUES (" . $max_id . "," . $_POST['MovieID'] . "," . $_POST['GenreID'] .")");
+	try{
+	$res=$mysqli->query("SELECT movieID from Movie where movieName='".$_POST['MovieName']."'");
+	$res_qry=max(mysqli_fetch_array($res,MYSQLI_ASSOC));
+	}catch(Exception $e){
+		echo $e;
+	}
+	$result = $mysqli->query("INSERT INTO GenreMap(MapID, MovieID, GenreID) VALUES (" . $max_id . "," . $res_qry . "," . $_POST['GenreID'] .")");
+
+	
 	echo "<meta http-equiv='refresh' content='0'>";
 }
 ?>
@@ -14,7 +22,6 @@ if(isset($_POST['SubmitMovieAdd'])) { //check if form was submitted
 
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 	<div class="col-md-11">
-		<br><br>
 		<h1>Añadir película</h1>
 		<div class="row">
 			<table class="table table-striped">
@@ -24,7 +31,7 @@ if(isset($_POST['SubmitMovieAdd'])) { //check if form was submitted
 				</tr>
 				<tr>
 					<th>Año de lanzamiento:</th>
-					<th><input type="text" name="MovieName"></th>
+					<th><input type="text" name="ReleaseYear"></th>
 				</tr>	
 					<th>Genre</th>
 				</tr>

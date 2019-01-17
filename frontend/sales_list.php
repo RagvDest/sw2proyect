@@ -1,5 +1,5 @@
-<?php include '../templatesh/header.php' ?>
-<h1>Lista de Proyecciones</h1>
+<?php include 'template/header.php' ?>
+<h1>Ventas</h1>
 
 <?php
 	if(isset($_POST['search'])){
@@ -14,11 +14,11 @@
 		$qry="select * from showing where movieid=".$rel;
 		$search_result=filterTable($mysqli,$qry);
 	}else{
-		$qry="Select * from showing";
+		$qry="Select * from vie";
 		$search_result=filterTable($mysqli,$qry);
 	}
 	}else{
-		$qry="Select * from showing";
+		$qry="Select * from viewing";
 		$search_result=filterTable($mysqli,$qry);	
 	}
 
@@ -60,4 +60,4 @@
 </form>
 <?php $search_result->close(); ?>
 
-<?php include '../template/footer.php' ?>
+<?php include 'template/footer.php' ?>

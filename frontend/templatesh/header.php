@@ -1,8 +1,6 @@
 <head>
-	<title>My Very Own Virual Machine</title>
-	<link rel="stylesheet" href="../../css/bootstrap.min.css">
-	<link rel="stylesheet" href="../../css/bootstrap-datepicker3.standalone.min.css">
-	<link rel="stylesheet" href="../../css/jquery.timepicker.css">
+	<title>Proyecciones</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<script src="../../js/jquery-2.1.4.min.js"></script>
 	<script src="../../js/bootstrap.min.js"></script>
 	<script src="../../js/bootstrap-datepicker.min.js"></script>
@@ -25,18 +23,14 @@ if ($mysqli->connect_errno) {
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Avance Software</a>
-				<a class="navbar-brand" href="../movie/movie_add.php">Añadir</a>
-				<a class="navbar-brand" href="../movie/movie_delete.php">Eliminar</a>
-				<a class="navbar-brand" href="../movie/movie_update.php">Actualizar</a>
-				<a class="navbar-brand" href="../movie/movie_list.php">Buscar</a>
+				<a class="navbar-brand" href="#">Avance Proyecto</a>
 
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="../landing.php">Regresar</a></li>
+					<li><a href="landing.php">Go Back</a></li>
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->

@@ -1,4 +1,4 @@
-<?php include '../template/header.php' ?>
+<?php include '../templategenre/header.php' ?>
 <h1>Lista de Géneros</h1>
 
 <?php

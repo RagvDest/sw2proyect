@@ -43,7 +43,7 @@
 			<h1 id="titulo">MovStar</h1>
 			<p id="opciones">Seleccione una opción:</p>
 			<a class="btn btn-default btn-lg" href="backend/landing.php" role="button">Backend</a>
-			<a class="btn btn-default btn-lg" href="#" role="button">Frontend</a>
+			<a class="btn btn-default btn-lg" href="frontend/landing.php" role="button">Frontend</a>
 
 		</div>
 	</body>
