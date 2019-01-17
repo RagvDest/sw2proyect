@@ -3,18 +3,23 @@
 
 <?php
 	if(isset($_POST['search'])){
+		if(isset($_POST['myInput'])){
 		$valueToSearch=$_POST['myInput'];
 		$query="select movieId from movie where movieName LIKE '%".$valueToSearch."%'";
 		$resul=$mysqli->query($query);
+		while($ros = mysqli_fetch_array($resul,MYSQLI_ASSOC)){
+			$rel=$ros['movieId'];
+		}
 
-		
-
-		$qry="select * from showing where movieName LIKE '%".$valueToSearch."%'";
+		$qry="select * from showing where movieid=".$rel;
 		$search_result=filterTable($mysqli,$qry);
-	}
-	else{
+	}else{
 		$qry="Select * from showing";
 		$search_result=filterTable($mysqli,$qry);
+	}
+	}else{
+		$qry="Select * from showing";
+		$search_result=filterTable($mysqli,$qry);	
 	}
 
 	function filterTable($mysqli,$qry){
