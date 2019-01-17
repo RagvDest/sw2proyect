@@ -14,7 +14,7 @@
 		$qry="select * from showing where movieid=".$rel;
 		$search_result=filterTable($mysqli,$qry);
 	}else{
-		$qry="Select * from vie";
+		$qry="Select * from viewing";
 		$search_result=filterTable($mysqli,$qry);
 	}
 	}else{
@@ -38,20 +38,25 @@
 	<br><br>
 	<table class="table table-striped">
 	    <tr>
-	        <th>ProyeccionId</th>
-	        <th>Nombre de la Pelicula</th>
-	        <th>Numero de Sala</th>
+	        <th>VentaId</th>
+	        <th>Cliente</th>
+	        <th>Proyección</th>
 	        <th>Fecha</th>
 	        <th>Hora</th>
 	    </tr>
 		<?php while($row = mysqli_fetch_array($search_result, MYSQLI_ASSOC)){ ?>
 			<tr>
-				<?php $res=$mysqli->query("select MovieName from Movie where movieId='".$row['MovieID']."'"); 
+				<?php $res=$mysqli->query("select * from customer  where customerId='".$row['CustomerID']."'"); 
 					$nombre=mysqli_fetch_array($res,MYSQLI_ASSOC);
+					$pro=$mysqli->query("select * from showing where showingId='".$row['ShowingID']."'");
+					$proyeccion=mysqli_fetch_array($pro,MYSQLI_ASSOC);
+					$movname=$mysqli->query("select * from movie  where movieId='".$proyeccion['MovieID']."'");
+					$mov=mysqli_fetch_array($movname,MYSQLI_ASSOC);
+
 				?>
-				<td><?php echo $row['ShowingID']; ?></td>
-				<td><?php echo $nombre['MovieName']; ?></td>
-	            <td><?php echo $row['MovieID']; ?></td>
+				<td><?php echo $row['ViewingID']; ?></td>
+				<td><?php echo $nombre['FName']." ".$nombre['LName']; ?></td>
+	            <td><?php echo $proyeccion['ShowingID']."-".$mov['MovieName']." ".$proyeccion['Date']." ".$proyeccion['Time']; ?></td>
 	            <td><?php echo $row['Date']; ?></td>
 	            <td><?php echo $row['Time']; ?></td>
 	        </tr>
