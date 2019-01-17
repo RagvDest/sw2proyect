@@ -10,7 +10,7 @@
 </head>
 
 <?php
-$mysqli = new mysqli("localhost", "root", "123456789", "smackie6db");
+$mysqli = new mysqli("localhost", "root", "", "smackie6db");
 
 /* check connection */
 if ($mysqli->connect_errno) {
@@ -25,9 +25,11 @@ if ($mysqli->connect_errno) {
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Avance Proyecto</a>
 				<a class="navbar-brand" href="../movie/movie_add.php">Añadir</a>
 				<a class="navbar-brand" href="../movie/movie_delete.php">Eliminar</a>
 				<a class="navbar-brand" href="../movie/movie_update.php">Actualizar</a>
+				<a class="navbar-brand" href="../movie/movie_list.php">Buscar</a>
 
 			</div>
 

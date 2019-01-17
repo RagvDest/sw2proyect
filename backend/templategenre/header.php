@@ -1,5 +1,5 @@
 <head>
-	<title>My Very Own Virual Machine</title>
+	<title>Generos</title>
 	<link rel="stylesheet" href="../../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../../css/bootstrap-datepicker3.standalone.min.css">
 	<link rel="stylesheet" href="../../css/jquery.timepicker.css">

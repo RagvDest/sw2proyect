@@ -11,7 +11,7 @@ if(isset($_POST['SubmitMovieUpdate'])){ //check if form was submitted
 	if($_POST['GenreID']){
 		$result = $mysqli->query(" UPDATE GenreMap SET GenreID=\"" . $_POST['GenreID'] . "\" WHERE MovieID=" . $_POST['MovieID']);
 	};
-	echo "<meta http-equiv='refresh' content='0'>";
+	//echo "<meta http-equiv='refresh' content='0'>";
 }
 ?>
 
@@ -55,7 +55,7 @@ if(isset($_POST['SubmitMovieUpdate'])){ //check if form was submitted
 				</tr>
 				<tr>
 					<th>Año de lanzamiento:</th>
-					<th><input type="text" name="MovieName"></th>
+					<th><input type="text" name="ReleaseYear"></th>
 				</tr>
 					<th>Género:</th>
 				</tr>
