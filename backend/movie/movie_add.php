@@ -22,7 +22,6 @@ if(isset($_POST['SubmitMovieAdd'])) { //check if form was submitted
 
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 	<div class="col-md-11">
-		<br><br>
 		<h1>Añadir película</h1>
 		<div class="row">
 			<table class="table table-striped">

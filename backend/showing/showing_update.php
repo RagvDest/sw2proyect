@@ -17,10 +17,35 @@ if(isset($_POST['SubmitShowingUpdate'])){ //check if form was submitted
     };
 	echo "<meta http-equiv='refresh' content='0'>";
 }
+
+if(isset($_POST['search'])){
+		if(isset($_POST['myInput'])){
+		$valueToSearch=$_POST['myInput'];
+		$query="select movieId from movie where movieName LIKE '%".$valueToSearch."%'";
+		$resul=$mysqli->query($query);
+		while($ros = mysqli_fetch_array($resul,MYSQLI_ASSOC)){
+			$rel=$ros['movieId'];
+		}
+
+		$qry="select * from showing where movieid=".$rel;
+		$search_result=filterTable($mysqli,$qry);
+	}else{
+		$qry="Select * from showing";
+		$search_result=filterTable($mysqli,$qry);
+	}
+	}else{
+		$qry="Select * from showing";
+		$search_result=filterTable($mysqli,$qry);	
+	}
+
+	function filterTable($mysqli,$qry){
+		$filter_result = $mysqli->query($qry);
+		return $filter_result;
+	}
+
 ?>
 
 
-<?php $result = $mysqli->query("SELECT * FROM Showing"); ?>
 <form action="" method="post">
 	<div class="col-md-4"></div>
 	<div class="col-md-4">
@@ -30,8 +55,15 @@ if(isset($_POST['SubmitShowingUpdate'])){ //check if form was submitted
 			<table class="table table-striped">
 				<tr>
 					<th>Proyecciones</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th><input type="text" style="width: 70%;border-radius: 5px;" name="myInput" name="valueToSearch" placeholder="Buscar Proyeccion..." title="Buscar Proyeccion"><input type="submit" name="search" value="Filtrar"></th>
+				</tr>
+				<tr>
+					<th></th>
 					<th><select class="btn btn-default dropdown-toggle" type="button"  name="ShowingID">
-							<?php while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){ ?>
+							<?php while($row = mysqli_fetch_array($search_result, MYSQLI_ASSOC)){ ?>
 								<?php
 								$result2 = $mysqli->query("SELECT MovieName FROM Movie WHERE MovieID=" . $row['MovieID']);
 								$value2 = mysqli_fetch_array($result2, MYSQLI_ASSOC);
@@ -40,13 +72,11 @@ if(isset($_POST['SubmitShowingUpdate'])){ //check if form was submitted
 							<?php } ?>
 						</select></th>
 				</tr>
-				<tr>
-					
-				</tr>
+				
 			</table>
 		</div>
 	</div>
-	<div class="col-md-4" style="height: 200px;">
+	<div class="col-md-4" style="height: 285px;">
 	</div>
 	<div class="col-md-4"></div>
 	<div class="col-md-4">
@@ -100,7 +130,7 @@ if(isset($_POST['SubmitShowingUpdate'])){ //check if form was submitted
 	</div>
 </form>
 
-<?php $result->close(); ?>
+<?php $search_result->close(); ?>
 
 <script type="text/javascript">
 	$('#timepicker2').timepicker({
