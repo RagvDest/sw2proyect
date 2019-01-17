@@ -43,6 +43,7 @@
 	        <th>Proyección</th>
 	        <th>Fecha</th>
 	        <th>Hora</th>
+	        <th>Costo del Ticket</th>
 	    </tr>
 		<?php while($row = mysqli_fetch_array($search_result, MYSQLI_ASSOC)){ ?>
 			<tr>
@@ -56,9 +57,10 @@
 				?>
 				<td><?php echo $row['ViewingID']; ?></td>
 				<td><?php echo $nombre['FName']." ".$nombre['LName']; ?></td>
-	            <td><?php echo $proyeccion['ShowingID']."-".$mov['MovieName']." ".$proyeccion['Date']." ".$proyeccion['Time']; ?></td>
-	            <td><?php echo $row['Date']; ?></td>
-	            <td><?php echo $row['Time']; ?></td>
+	            <td><?php echo $proyeccion['ShowingID']."-".$mov['MovieName']; ?></td>
+	            <td><?php echo $proyeccion['Date']; ?></td>
+	            <td><?php echo $proyeccion['Time']; ?></td>
+	            <td><?php echo '$'.$row['TicketCost']; ?></td>
 	        </tr>
 		<?php } ?>
 	</table>
