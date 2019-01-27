@@ -2,10 +2,25 @@
 
 <?php
 if(isset($_POST['SubmitMovieDelete'])) { //check if form was submitted
+	try{
 	$result = $mysqli->query("DELETE FROM GenreMap WHERE MovieID=" . $_POST['MovieID']);
-	$result = $mysqli->query("DELETE FROM Movie WHERE MovieID=" . $_POST['MovieID']);
+	$result1 = $mysqli->query("DELETE FROM Movie WHERE MovieID=" . $_POST['MovieID']);
+	}catch(Exeption $e){
+		echo $e->getMessage();
+	}
+	
+		if(!$result1){
+			echo "<script>alert('No se pudo eliminar la Pelicula, revise si existe en otro registro')</script>";
+		}else if(!$result){
+			echo "<script>alert('No se pudo eliminar la Pelicula, revise si existe en otro registro')</script>";
+		}
+		else{
+			echo "<script>alert('Pelicula Eliminada')</script>";
+			
+		}
 	echo "<meta http-equiv='refresh' content='0'>";
 }
+
 
 if(isset($_POST['search'])){
         $valueToSearch=$_POST['myInput'];

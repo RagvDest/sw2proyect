@@ -6,6 +6,7 @@ if(isset($_POST['SubmitGenreUpdate'])){ //check if form was submitted
 	if($_POST['Genre']){
 		$result = $mysqli->query(" UPDATE Genre SET Genre=\"" . $_POST['Genre'] . "\" WHERE GenreID=" . $_POST['GenreID']);
 	};
+	echo "<script>alert('Género Actualizado')</script>";
 	echo "<meta http-equiv='refresh' content='0'>";
 }
 

@@ -2,6 +2,12 @@
 <?php
 if(isset($_POST['SubmitCustomerDelete'])) { //check if form was submitted
     $result = $mysqli->query("DELETE FROM Customer WHERE CustomerID=" . $_POST['CustomerID']);
+
+    if(!$result){
+        echo "<script>alert('No se pudo eliminar el Cliente, revise si existe en otro registro')</script>";
+    }else{
+        echo "<script>alert('Cliente eliminado')</script>";   
+    }
     echo "<meta http-equiv='refresh' content='0'>";
 }
 

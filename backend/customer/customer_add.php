@@ -2,6 +2,10 @@
 <?php
 if(isset($_POST['SubmitCustomerAdd'])) { //check if form was submitted
     $result = $mysqli->query("INSERT INTO Customer( FName, LName, Gender, Email) VALUES (\"" . $_POST['FName'] . "\",\"" . $_POST['LName'] . "\",\"" . $_POST['Gender'] . "\",\"" . $_POST['Email'] . "\")");
+
+    echo "<script>alert('Cliente creado')</script>";
+    
+
     echo "<meta http-equiv='refresh' content='0'>";
 }
 ?>

@@ -2,6 +2,13 @@
 include "../templategenre/header.php";
 if(isset($_POST['SubmitGenreDelete'])) { //check if form was submitted
 	$result = $mysqli->query("DELETE FROM Genre WHERE GenreID=" . $_POST['GenreID']);
+
+	if(!$result){
+		echo "<script>alert('No es posible eliminar el género')</script>";
+	}else{
+		echo "<script>alert('Género Eliminado')</script>";
+	}
+
 	echo "<meta http-equiv='refresh' content='0'>";
 }
 

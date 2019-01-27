@@ -13,7 +13,7 @@ if(isset($_POST['SubmitMovieAdd'])) { //check if form was submitted
 	}
 	$result = $mysqli->query("INSERT INTO GenreMap(MapID, MovieID, GenreID) VALUES (" . $max_id . "," . $res_qry . "," . $_POST['GenreID'] .")");
 
-	
+	echo "<script>alert('Pelicula registrada')</script>";
 	echo "<meta http-equiv='refresh' content='0'>";
 }
 ?>

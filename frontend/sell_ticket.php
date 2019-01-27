@@ -6,32 +6,34 @@ if(isset($_POST['SubmitSellTicket'])) { //check if form was submitted
     $max_query = max(mysqli_fetch_array($result, MYSQLI_ASSOC));
     $max_id = $max_query + 1;
     $result = $mysqli->query("INSERT INTO Viewing(ViewingID, ShowingID, Rating, TicketCost, CustomerID) VALUES (" . $max_id . "," . $_POST['ShowingID'] . ",0," . $_POST['TicketCost'] . "," . $_POST['CustomerID'] . ")");
+    echo "<script>alert('Venta realizada')</script>";
     echo "<meta http-equiv='refresh' content='0'>";
 }
 
-if(isset($_POST['filtrarCl'])){
+if(isset($_POST['filtrarSh'])){
     $valueToSearch=$_POST['myInput'];
         $qry="select * from customer where CONCAT(fname,lname) LIKE '%".$valueToSearch."%'";
         $result=filterS($qry,$mysqli);
-}
-else{
-    $qry="select * from customer";
-    $result=filterS($qry,$mysqli);
-}
-if(isset($_POST['filtrarSh'])){
-    $valueToSearch=$_POST['myInput2'];
-        $query="select movieId from movie where movieName LIKE '%".$valueToSearch."%'";
+
+        $valueToSearch1=$_POST['myInput2'];
+        $query="select movieId from movie where movieName LIKE '%".$valueToSearch1."%'";
         $resul=$mysqli->query($query);
         while($ros = mysqli_fetch_array($resul,MYSQLI_ASSOC)){
             $rel=$ros['movieId'];
         }
 
-        $qry="select * from showing where movieid=".$rel;
-        $result2=filterS($qry,$mysqli);
-}else{
-    $qry="select * from showing";
-    $result2=filterS($qry,$mysqli);
+        $qry1="select * from showing where movieid=".$rel;
+        $result2=filterS($qry1,$mysqli);
+
 }
+else{
+    $qry="select * from customer";
+    $result=filterS($qry,$mysqli);
+
+    $qry5="select * from showing";
+    $result2=filterS($qry5,$mysqli);
+}
+
 
 function filterS($qry,$mysqli){
     $filter_search=$mysqli->query($qry);    
@@ -52,7 +54,7 @@ function filterS($qry,$mysqli){
                     <th>TicketCost</th>
                 </tr>
                 <tr>
-                    <th><input type="text" style="width: 60%;border-radius: 5px;" name="myInput" name="buscarCliente" placeholder="Buscar Cliente..." title="Buscar Cliente"><input type="submit" name="filtrarCl" value="Buscar"></th>
+                    <th><input type="text" style="width: 60%;border-radius: 5px;" name="myInput" name="buscarCliente" placeholder="Buscar Cliente..." title="Buscar Cliente"></th>
                     <th><input type="text" style="width: 80%;border-radius: 5px;" name="myInput2" name="buscarPelicula" placeholder="Buscar Proyeccion..." title="Buscar Proyeccion"><input type="submit" name="filtrarSh" value="Buscar"></th>
                 </tr>
                 <tr>

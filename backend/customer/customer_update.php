@@ -16,6 +16,7 @@ if(isset($_POST['SubmitCustomerUpdate'])){ //check if form was submitted
     if($_POST['Email']){
         $result = $mysqli->query(" UPDATE Customer SET Email=\"" . $_POST['Email'] . "\" WHERE CustomerID=" . $_POST['CustomerID']);
     };
+    echo "<script>alert('Cliente Actualizado')</script>";
     echo "<meta http-equiv='refresh' content='0'>";
 }
 
@@ -67,9 +68,7 @@ function filterS($qry,$mysqli){
 			</table>
 		</div>
 	</div>
-	<div class="col-md-4" style="height: 240px;">
-		
-	</div>
+
 	<div class="col-md-4"></div>
 	<div class="col-md-4">
 		<div class="row">

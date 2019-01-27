@@ -15,6 +15,7 @@ if(isset($_POST['SubmitShowingUpdate'])){ //check if form was submitted
     if($_POST['Time']){
         $result = $mysqli->query(" UPDATE Showing SET Time=\"" . $_POST['Time'] . "\" WHERE ShowingID=" . $_POST['ShowingID']);
     };
+    echo "<script>alert('Proyección Actualizada')</script>";
 	echo "<meta http-equiv='refresh' content='0'>";
 }
 

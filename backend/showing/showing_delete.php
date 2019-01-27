@@ -2,6 +2,11 @@
 <?php
 if(isset($_POST['SubmitShowingDelete'])) { //check if form was submitted
 	$result = $mysqli->query("DELETE FROM Showing WHERE ShowingID=" . $_POST['ShowingID']);
+	if(!$result){
+		echo "<script>alert('No es posible eliminar proyección. Verifique si existen otros registros')</script>";
+	}else{
+		echo "<script>alert('Proyección eliminada')</script>";
+	}
 	echo "<meta http-equiv='refresh' content='1'>";
 }
 

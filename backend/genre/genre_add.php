@@ -4,6 +4,7 @@ include '../templategenre/header.php';
 
 if(isset($_POST['SubmitGenreAdd'])) { //check if form was submitted
 	$result = $mysqli->query("INSERT INTO Genre(Genre) VALUES (\"" . $_POST['Genre'] . "\")");
+    echo "<script>alert('Género creado')</script>";
 	echo "<meta http-equiv='refresh' content='0'>";
 }
 ?>
