@@ -16,55 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `cajero`
---
-
-DROP TABLE IF EXISTS `cajero`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `cajero` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `saldo` double DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `cajero`
---
-
-LOCK TABLES `cajero` WRITE;
-/*!40000 ALTER TABLE `cajero` DISABLE KEYS */;
-INSERT INTO `cajero` VALUES (1,2234.94);
-/*!40000 ALTER TABLE `cajero` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `cuenta`
---
-
-DROP TABLE IF EXISTS `cuenta`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `cuenta` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `cuenta` varchar(255) NOT NULL,
-  `saldo` double DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `cuenta`
---
-
-LOCK TABLES `cuenta` WRITE;
-/*!40000 ALTER TABLE `cuenta` DISABLE KEYS */;
-INSERT INTO `cuenta` VALUES (3,'EdgarG',990),(4,'JorgeZ',1859.02),(5,'TitoG',895.9199999999998),(8,'DiegoS',100),(9,'KennyL',5300),(10,'JacintoP',6000),(11,'JorgeL',6000);
-/*!40000 ALTER TABLE `cuenta` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `customer`
 --
 
@@ -142,34 +93,6 @@ LOCK TABLES `genremap` WRITE;
 /*!40000 ALTER TABLE `genremap` DISABLE KEYS */;
 INSERT INTO `genremap` VALUES (4,14,5);
 /*!40000 ALTER TABLE `genremap` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `historial`
---
-
-DROP TABLE IF EXISTS `historial`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `historial` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `saldoA` varchar(255) DEFAULT NULL,
-  `saldoD` varchar(255) DEFAULT NULL,
-  `cantidad` varchar(255) DEFAULT NULL,
-  `tipoTrans` varchar(255) DEFAULT NULL,
-  `cuentac` varchar(22) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `historial`
---
-
-LOCK TABLES `historial` WRITE;
-/*!40000 ALTER TABLE `historial` DISABLE KEYS */;
-INSERT INTO `historial` VALUES (1,'150','200',NULL,'Deposito','Renny Goro'),(2,'200','100',NULL,'Retiro','MarioG'),(3,'100','800',NULL,'Deposito','Renny Goro'),(7,'100','800',NULL,'Deposito','RDSAenny Goro'),(8,'2732','2742',NULL,'TitoG','Deposito'),(9,'2402','2386','TitoG','Retiro','15.65'),(10,'2385.92','2234.94','150.98','Retiro','JorgeZ');
-/*!40000 ALTER TABLE `historial` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -320,4 +243,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-01-30 22:04:41
+-- Dump completed on 2019-01-30 22:10:32
