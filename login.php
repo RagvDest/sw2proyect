@@ -101,8 +101,8 @@ span.psw {
 	<nav class="navbar navbar-default">
 		  <div class="container-fluid" style="background-color: #f2f2f2;">
 		    <!-- Brand and toggle get grouped for better mobile display -->
-		      <h2 style="color: black;margin-left: 10%;font-family: Arial,Helvetica, sans-serif;
-"><strong>Ingresar</strong></h2>
+		      <h2 style="color: black;margin-left: 10%;font-family: Arial,Helvetica, sans-serif;"><strong>Ingresar</strong></h2>
+    		
 		  </div>
 		</nav>
 <div id="nombre">
@@ -124,6 +124,9 @@ span.psw {
     
   </div>
 <?php
+	if(isset($_POST['crear'])){
+		header('Location:crearUser.php');
+	}
 	if(isset($_POST['enviar'])){
 		
 		$user=$_POST['uname'];
@@ -150,6 +153,13 @@ span.psw {
 
 </form>
 </div>
+<div style="background-color: white;margin-left: 25%;width: 50%;">
+	<form method="POST">
+		<label style="margin-left: 70%;" for="crear">¿No tienes usuario? ¡Crealo!</label>
+    		<button class="btn btn-primary" style="width: 45%;margin-left: 50%;border-radius: 5px;" type="submit" name="crear">Crear</button>
+	</form>
+</div>
+<div style="background-color: white;margin-left: 25%;width: 50%; height: 10px;"></div>
 	</body>
 </html>
 	
