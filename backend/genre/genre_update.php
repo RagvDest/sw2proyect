@@ -73,7 +73,7 @@ function filterS($qry,$mysqli){
 				</tr>
 				<tr>
 					<th></th>
-					<th><button type="submit" class="btn btn-default btn-lg" name="SubmitGenreUpdate">Update</button></th>
+					<th><button type="submit" class="btn btn-default btn-lg" name="SubmitGenreUpdate">Actualizar</button></th>
 				</tr>
 			</table>
 		</div>

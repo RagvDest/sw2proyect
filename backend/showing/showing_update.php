@@ -84,7 +84,7 @@ if(isset($_POST['search'])){
 		<div class="row">
 			<table class="table table-striped">
 				<tr>
-					<th>Movie</th>
+					<th>Película</th>
 					<th><select class="btn btn-default dropdown-toggle" type="button"  name="MovieID">
 							<?php
 							$result1 = $mysqli->query("SELECT * FROM Movie");
@@ -95,7 +95,7 @@ if(isset($_POST['search'])){
 						</select></th>
 				</tr>
 				<tr>
-					<th>RoomNumber</th>
+					<th>Sala</th>
 					<th><select class="btn btn-default dropdown-toggle" type="button"  name="RoomNumber">
 							<?php
 							$result2 = $mysqli->query("SELECT * FROM Theatre");
@@ -106,11 +106,11 @@ if(isset($_POST['search'])){
 						</select></th>
 				</tr>
 				<tr>
-					<th>Date</th>
+					<th>Fecha</th>
 					<th><input id="datetimepicker2" type="text" class="form-control" name="Date"></th>
 				</tr>
 				<tr>
-					<th>Time</th>
+					<th>Hora</th>
 					<th><input id="timepicker2" type="text" name="Time"/></th>
 				</tr>
 					
@@ -119,7 +119,7 @@ if(isset($_POST['search'])){
 				</tr>
 				<tr>
 					<td>
-						<button type="submit" class="btn btn-default btn-lg" name="SubmitShowingUpdate">Update</button>
+						<button type="submit" class="btn btn-default btn-lg" name="SubmitShowingUpdate">Actualizar</button>
 					</td>
 					
 				</tr>

@@ -1,5 +1,5 @@
 <head>
-	<title>Proyecto Software</title>
+	<title>Proyecto Software II</title>
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
     <script src="../js/jquery-2.1.4.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
@@ -29,7 +29,7 @@ if ($mysqli->connect_errno) {
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
-				<a class="navbar-brand" href="../index.php">Avance Software</a>
+				<a class="navbar-brand" href="../index.php">Proyecto MovStar</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->

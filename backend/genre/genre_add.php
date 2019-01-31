@@ -21,7 +21,7 @@ if(isset($_POST['SubmitGenreAdd'])) { //check if form was submitted
 					<th><input type="text" name="Genre"/></th>
 				</tr>
 				<tr>
-					<th><button type="submit" class="btn btn-default btn-lg" name="SubmitGenreAdd">Add</button></th>
+					<th><button type="submit" class="btn btn-default btn-lg" name="SubmitGenreAdd">Añadir</button></th>
 				</tr>
 			</table>
 		</div>

@@ -28,7 +28,7 @@
 	<br><br>
 	<table class="table table-striped">
 	    <tr>
-	        <th>CustomerId</th>
+	        <th>idCliente</th>
 	        <th>Nombre</th>
 	        <th>Apellido</th>
 	        <th>Género</th>

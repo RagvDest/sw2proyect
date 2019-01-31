@@ -25,7 +25,7 @@ if ($mysqli->connect_errno) {
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">PSC Backend</a>
+				<a class="navbar-brand" href="#">Proyecto software II</a>
 				<a class="navbar-brand" href="../customer/customer_add.php">Añadir</a>
 				<a class="navbar-brand" href="../customer/customer_delete.php">Eliminar</a>
 				<a class="navbar-brand" href="../customer/customer_update.php">Actualizar</a>
@@ -36,7 +36,7 @@ if ($mysqli->connect_errno) {
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="../landing.php">Go Back</a></li>
+					<li><a href="../landing.php">Regresar</a></li>
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->

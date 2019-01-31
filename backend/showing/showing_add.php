@@ -27,11 +27,11 @@ if(isset($_POST['search'])){
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 	<div class="col-md-4"></div>
 	<div class="col-md-4">
-		<h1>Showing Add</h1>
+		<h1>Añadir Proyección</h1>
 		<div class="row">
 			<table class="table table-striped">
 				<tr>
-					<th>Movie</th>
+					<th>Película</th>
 				</tr>
 				<tr>
 					<th><input type="text" style="width: 70%;border-radius: 5px;" name="myInput" name="valueToSearch" placeholder="Buscar Peliculas..." title="Buscar Pelicula"></th>
@@ -50,7 +50,7 @@ if(isset($_POST['search'])){
 						</select></th>
 				</tr>
 				<tr>
-					<th>RoomNumber</th>
+					<th>Sala</th>
 					<th><select class="btn btn-default dropdown-toggle" type="button"  name="RoomNumber">
 							<?php
 							$result2 = $mysqli->query("SELECT * FROM Theatre");
@@ -61,24 +61,22 @@ if(isset($_POST['search'])){
 						</select></th>
 				</tr>
 				<tr>
-					<th>Date</th>
+					<th>Fecha</th>
 					<th>
 						<input id="datetimepicker" type="text" class="form-control" name="Date">
 					</th>
 				</tr>
 				<tr>
-					<th>Time</th>
+					<th>Hora</th>
 					<th>
 						<input id="timepicker" type="text" name="Time"/>
 					</th>
 				</tr>
 				<tr>
 					<th></th>
-					<th><button type="submit" class="btn btn-default btn-lg" name="SubmitShowingAdd">Add</button></th>
+					<th><button type="submit" class="btn btn-default btn-lg" name="SubmitShowingAdd">Añadir</button></th>
 				</tr>
-					
-					
-				
+
 			</table>
 		</div>
 	</div>

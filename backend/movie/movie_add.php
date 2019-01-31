@@ -33,7 +33,7 @@ if(isset($_POST['SubmitMovieAdd'])) { //check if form was submitted
 					<th>Año de lanzamiento:</th>
 					<th><input type="text" name="ReleaseYear"></th>
 				</tr>	
-					<th>Genre</th>
+					<th>Género</th>
 				</tr>
 				<tr>
 					<td>

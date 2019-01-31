@@ -113,10 +113,10 @@ span.psw {
   </div>
 
   <div class="container" style="width: 100%;">
-    <label for="uname"><b>Username</b></label>
+    <label for="uname"><b>Usuario</b></label>
     <input type="text" placeholder="Enter Username" name="uname" required>
   <br>
-    <label for="psw"><b>Password</b></label>
+    <label for="psw"><b>Contraseña</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
     <label for="tipo">Tipo de Usuario</label><br>
     <select name="tipo">

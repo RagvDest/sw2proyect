@@ -42,11 +42,11 @@ function filterS($qry,$mysqli){
 <form action="" method="post">
 	<div class="col-md-4"></div>
 	<div class="col-md-4">
-        <h1>Customer Update</h1>
+        <h1>Actualizar Cliente</h1>
         <div class="row">
 			<table class="table table-striped">
 				<tr>
-					<th>Customer</th>
+					<th>Cliente</th>
 				</tr>
 				<tr>
 					<th>
@@ -74,19 +74,19 @@ function filterS($qry,$mysqli){
 		<div class="row">
 			<table class="table table-striped">
 				<tr>
-					<th>FName</th>
+					<th>Nombre</th>
 					<th><input type="text" name="FName"/></th>
 					
 				</tr>
 				<tr>
-					<th>LName</th>
+					<th>Apellido</th>
 					<th><input type="text" name="LName"/></th>
 				</tr>
 				<tr>
-					<th>Gender</th>
+					<th>Género</th>
 					<th><select class="btn btn-default dropdown-toggle" type="button"  name="Gender">
-                        <option value="M">M</option>
-                        <option value="F">F</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
                     </select></th>
                 <tr>
                 	<th>Email</th>
@@ -100,7 +100,7 @@ function filterS($qry,$mysqli){
 				<tr>
 					<th><div class="col-md-1">
 		<br>
-		<button type="submit" class="btn btn-default btn-lg" name="SubmitCustomerUpdate">Update</button>
+		<button type="submit" class="btn btn-default btn-lg" name="SubmitCustomerUpdate">Actualizar</button>
 	</div></th>
 				</tr>
 			</table>

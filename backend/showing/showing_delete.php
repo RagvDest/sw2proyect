@@ -68,7 +68,7 @@ if(isset($_POST['search'])){
 				</tr>
 				<tr>
 
-					<th><button style="margin-left: 65%;" type="submit" class="btn btn-default btn-lg" name="SubmitShowingDelete">Delete</button></th>
+					<th><button style="margin-left: 65%;" type="submit" class="btn btn-default btn-lg" name="SubmitShowingDelete">Borrar</button></th>
 				</tr>
 			</table>
 		</div>

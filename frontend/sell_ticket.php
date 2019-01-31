@@ -49,9 +49,9 @@ function filterS($qry,$mysqli){
         <div class="row">
             <table class="table table-striped">
                 <tr>
-                    <th>CustomerId</th>
-                    <th>Showing</th>
-                    <th>TicketCost</th>
+                    <th>idCliente</th>
+                    <th>Proyección</th>
+                    <th>Costo del ticket</th>
                 </tr>
                 <tr>
                     <th><input type="text" style="width: 60%;border-radius: 5px;" name="myInput" name="buscarCliente" placeholder="Buscar Cliente..." title="Buscar Cliente"></th>
@@ -78,7 +78,7 @@ function filterS($qry,$mysqli){
                     </td>
                     <td><input type="text" name="TicketCost"/></td>
                 </tr>
-                <tr><td><td><td><button type="submit" class="btn btn-default btn-lg" name="SubmitSellTicket">Execute</button></td></td></tr>
+                <tr><td><td><td><button type="submit" class="btn btn-default btn-lg" name="SubmitSellTicket">Vender</button></td></td></tr>
             </table>
         </div>
     </div>

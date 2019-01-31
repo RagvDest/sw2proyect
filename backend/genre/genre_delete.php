@@ -64,7 +64,7 @@ function filterS($qry,$mysqli){
 				
 				<tr>
 					<th></th>
-					<th><button type="submit" class="btn btn-default btn-lg" name="SubmitGenreDelete">Delete</button></th>
+					<th><button type="submit" class="btn btn-default btn-lg" name="SubmitGenreDelete">Borrar</button></th>
 				</tr>
 			</table>
 		</div>

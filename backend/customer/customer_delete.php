@@ -36,12 +36,12 @@ function filterS($qry,$mysqli){
     <div class="col-md-4">
         <div class="row">
         
-        <h1>Customer Delete</h1>
+        <h1>Borrar Cliente</h1>
         </div>
         <div class="row">
         <table class="table table-striped">
             <tr>
-                <th>Customer</th>
+                <th>Cliente</th>
             </tr>
             <tr>
                 <th>
@@ -62,7 +62,7 @@ function filterS($qry,$mysqli){
             </tr>
             <tr>
                 <th>
-                    <button type="submit" class="btn btn-default btn-lg" name="SubmitCustomerDelete">Delete</button>
+                    <button type="submit" class="btn btn-default btn-lg" name="SubmitCustomerDelete">Borrar</button>
                 </th>
             </tr>
         </table>

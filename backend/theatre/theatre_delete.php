@@ -18,7 +18,7 @@ if(isset($_POST['SubmitTheatreDelete'])) { //check if form was submitted
 		<div class="row">
 			<table class="table table-striped">
 				<tr>
-					<th>RoomNumber</th>
+					<th>Número de sala</th>
 					<th><select class="btn btn-default dropdown-toggle" type="button"  name="RoomNumber">
 							<?php while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){ ?>
 								<option value="<?php echo $row['RoomNumber'] ?>"><?php echo $row['RoomNumber'] ?></option>
@@ -27,7 +27,7 @@ if(isset($_POST['SubmitTheatreDelete'])) { //check if form was submitted
 				</tr>
 				<tr>
 					<td>
-						<button type="submit" class="btn btn-default btn-lg" name="SubmitTheatreDelete">Delete</button>
+						<button type="submit" class="btn btn-default btn-lg" name="SubmitTheatreDelete">Borrar</button>
 					</td>
 				</tr>
 			</table>

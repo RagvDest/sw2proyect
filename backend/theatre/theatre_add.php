@@ -17,13 +17,13 @@ if(isset($_POST['SubmitTheatreAdd'])) { //check if form was submitted
 					<th><input type="text" name="RoomNumber"/></th>
 				</tr>
 					<tr>
-						<th>Capacity:</th>
+						<th>Capacidad:</th>
 						<th><input type="text" name="Capacity"/></th>
 					</tr>
 				<tr>
 					<th></th>
 					<th>
-						<button type="submit" class="btn btn-default btn-lg" name="SubmitTheatreAdd">Add</button>
+						<button type="submit" class="btn btn-default btn-lg" name="SubmitTheatreAdd">Añadir</button>
 					</th>
 				</tr>
 					

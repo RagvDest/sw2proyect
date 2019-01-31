@@ -92,7 +92,7 @@ if(isset($_POST['search'])){
 		</div>
 	</div>
 	<div class="col-md-2">
-		<button type="submit" class="btn btn-default btn-lg" name="SubmitMovieUpdate">Update</button>
+		<button type="submit" class="btn btn-default btn-lg" name="SubmitMovieUpdate">Actualizar</button>
 	</div>
 </form>
 

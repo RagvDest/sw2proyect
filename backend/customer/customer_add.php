@@ -41,7 +41,7 @@ if(isset($_POST['SubmitCustomerAdd'])) { //check if form was submitted
                 </tr>
                 <tr>
                     <td></td>
-                    <td><button type="submit" class="btn btn-default btn-lg" name="SubmitCustomerAdd">Add</button>
+                    <td><button type="submit" class="btn btn-default btn-lg" name="SubmitCustomerAdd">Añadir</button>
                 </tr>
                     
             </table>

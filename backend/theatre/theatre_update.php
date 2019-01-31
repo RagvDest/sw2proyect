@@ -38,7 +38,7 @@ if(isset($_POST['SubmitTheatreUpdate'])){ //check if form was submitted
 		<div class="row">
 			<table class="table table-striped">
 				<tr>
-					<th>Capacity</th>
+					<th>Capacidad</th>
 				</tr>
 				<tr>
 					<td><input type="text" name="Capacity"/></td>
@@ -46,7 +46,7 @@ if(isset($_POST['SubmitTheatreUpdate'])){ //check if form was submitted
 				<tr>
 					<td></td>
 					<td>
-						<button type="submit" class="btn btn-default btn-lg" name="SubmitTheatreUpdate">Update</button>
+						<button type="submit" class="btn btn-default btn-lg" name="SubmitTheatreUpdate">Actualizar</button>
 					</td>
 				</tr>
 			</table>

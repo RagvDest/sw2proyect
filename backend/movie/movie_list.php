@@ -27,9 +27,9 @@
 
 <table class="table table-striped">
     <tr>
-        <th>MovieName</th>
-        <th>ReleaseYear</th>
-        <th>Genre</th>
+        <th>Nombre de la película</th>
+        <th>Año de lanzamiento</th>
+        <th>Género</th>
     </tr>
     <?php while($row = mysqli_fetch_array($search_result, MYSQLI_ASSOC)){ ?>
         <?php
