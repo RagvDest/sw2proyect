@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Proyecto Software</title>
+		<title>MovStar</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 				<script src="js/jquery-2.1.4.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
@@ -10,6 +10,7 @@
 	<style>
 		body{
 			background-image: url("img/bginicio.jpg");
+			position:relative;	
 			background-size: cover;
 			background-repeat: no-repeat;
 		}
@@ -33,7 +34,7 @@
 		  <div class="container">
 		    <!-- Brand and toggle get grouped for better mobile display -->
 		    <div class="navbar-header">
-		      <a class="navbar-brand" href="index.php">Avance Software</a>
+		      <a class="navbar-brand" href="index.php">MovStar</a>
 		    </div>
 		  </div><!-- /.container-fluid -->
 		  </div>
